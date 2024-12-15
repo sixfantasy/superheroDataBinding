@@ -1,5 +1,6 @@
+import { SuperheroesService } from '../servicio-superheroes.service';
 import { Superheroe } from './../superheroe';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-editor-superheroe',
@@ -7,24 +8,26 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./editor-superheroe.component.css'],
 })
 export class EditorSuperheroeComponent {
-  @Input() superheroes: Superheroe[] = [];
-
+  superheroes: Superheroe[] = [];
+  constructor(private superheroesService: SuperheroesService) {
+    this.superheroes = this.superheroesService.listarHeroes();
+  }
   nombre: string = '';
   habilidades: string = '';
   imagenHeroe: string = '';
   altImagenHeroe: string = '';
+  disponibilidad: boolean = false;
   index: number = 1;
-  @Output() EventoNuevoSuperheroe = new EventEmitter<Superheroe>();
-  @Output() EventoDatosSuperheroe = new EventEmitter();
-  @Output() EventoEliminarSuperheroe = new EventEmitter<number>();
+
   enviarDatosSuperheroe() {
-    this.EventoDatosSuperheroe.emit({
-      index: this.index,
-      nombre: this.nombre,
-      habilidades: this.habilidades,
-      imagenHeroe: this.imagenHeroe,
-      altImagenHeroe: this.altImagenHeroe,
-    });
+    this.superheroesService.editarHeroe (
+      this.index,
+      this.nombre,
+      this.habilidades,
+      this.imagenHeroe,
+      this.altImagenHeroe,
+      this.disponibilidad,
+    );
   }
   encontrarIndiceHeroe(nombreHeroe: string): number {
     return this.superheroes.findIndex(
@@ -32,10 +35,10 @@ export class EditorSuperheroeComponent {
     );
   }
   agregarSuperheroe() {
-    this.EventoNuevoSuperheroe.emit(new Superheroe(this.nombre, this.habilidades.split(','), this.imagenHeroe, this.altImagenHeroe));
+    this.superheroesService.agregarSuperheroe(new Superheroe(this.nombre, this.habilidades.split(','), this.imagenHeroe, this.altImagenHeroe, this.disponibilidad));
   }
 
   eliminarSuperheroe(){
-    this.EventoEliminarSuperheroe.emit(this.index);
+    this.superheroesService.eliminarSuperheroe(this.index);
   }
 }

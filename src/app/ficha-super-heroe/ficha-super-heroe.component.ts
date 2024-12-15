@@ -11,6 +11,7 @@ export class FichaSuperHeroeComponent {
     'Heroe Generico',
     ['Habilidad Generica'],
     'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
-    'Imagen Generica'
+    'Imagen Generica',
+    true
   );
 }

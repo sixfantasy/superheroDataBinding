@@ -7,6 +7,7 @@ import { ListaSuperheroesComponent } from './lista-superheroes/lista-superheroes
 import { FichaSuperHeroeComponent } from './ficha-super-heroe/ficha-super-heroe.component';
 import { EditorSuperheroeComponent } from './editor-superheroe/editor-superheroe.component';
 import { FormsModule } from '@angular/forms';
+import { SuperheroesService } from './servicio-superheroes.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SuperheroesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

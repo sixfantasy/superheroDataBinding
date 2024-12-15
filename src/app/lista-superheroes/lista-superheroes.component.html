@@ -1,13 +1,2 @@
 <app-ficha-super-heroe *ngFor="let heroe of listaSuperheroes" [superheroe]="heroe"></app-ficha-super-heroe>
-<app-editor-superheroe (EventoDatosSuperheroe)="editarHeroe(
-  $event.index,
-  $event.nombre,
-  $event.habilidades,
-  $event.imagenHeroe,
-  $event.altImagenHeroe)"
-
-  (EventoNuevoSuperheroe)="agregarSuperheroe($event)"
-  (EventoEliminarSuperheroe)="eliminarSuperheroe($event)"
-
-  [superheroes]="listaSuperheroes">
-  </app-editor-superheroe>
+<app-editor-superheroe></app-editor-superheroe>

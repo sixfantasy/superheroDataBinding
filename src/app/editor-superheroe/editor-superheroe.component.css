@@ -1,3 +1,24 @@
-input {
-  display: block;
+form{
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  align-items: center;
+  gap: 1rem;
+  background-color: coral;
+  padding: 1rem;
+}
+form > *{
+  width: 100%;
+  background-color: lightblue;
+  height: 2rem;
+  border: 2px solid blue;
+  border-radius:  1rem;
+  box-sizing: border-box;
+  padding: 0.3rem;
+}
+#deleteHero {
+  background-color: red;
+}
+#deleteHero:disabled {
+  background-color: white;
 }

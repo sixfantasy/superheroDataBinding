@@ -10,11 +10,12 @@ export class Superheroe {
     this.misionesCompletadas++
     this.poder += 10
   }
-  constructor(nombre: string, habilidades: string[], imagenHeroeUrl:string, imageHeroeAlt: string){
+  constructor(nombre: string, habilidades: string[], imagenHeroeUrl:string, imageHeroeAlt: string, disponibilidad: boolean) {
     this.nombre = nombre;
     this.habilidades = habilidades;
     this.imagenHeroeUrl = imagenHeroeUrl;
     this.imagenHeroeAlt = imageHeroeAlt;
+    this.disponibilidad = disponibilidad;
 
   }
 }
