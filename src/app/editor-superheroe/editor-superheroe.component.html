@@ -1,0 +1,15 @@
+<input type="text" [(ngModel)]="nombre" name="nombreInput" placeholder="Nombre superheroe">
+<input type="text" [(ngModel)]="habilidades" name="habilidadesInput" placeholder="Habilidades superheroe">
+<input type="text" [(ngModel)]="imagenHeroe" name="imgInput" placeholder="Imagen superheroe">
+<input type="text" [(ngModel)]="altImagenHeroe" name="imgAltInput" placeholder="Alt imagen superheroe">
+<select [(ngModel)]="index" name="ListaHeroes" id="listaHeroes">
+  <option *ngFor="let heroe of superheroes"  [value]="encontrarIndiceHeroe(heroe.nombre)">{{heroe.nombre}}</option>
+  <option  value="-1">Nuevo heroe</option>
+</select>
+<input type="submit" (click)=" index == -1 ? agregarSuperheroe() : enviarDatosSuperheroe()" value="Editar superheroe">
+<br>
+<br>
+<br>
+<br>
+<br>
+<input [disabled]="index == -1 ? true : false" type="submit" (click)="eliminarSuperheroe()" value="Eliminar superheroe">

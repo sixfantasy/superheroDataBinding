@@ -1,0 +1,10 @@
+<div>
+  <h1>{{ superheroe.nombre }}</h1>
+  <p [style.color]="superheroe.poder < 150 ? 'red' : superheroe.poder < 200 ? 'black' : 'green'">
+    Poder:{{ superheroe.poder }}
+  </p>
+  <p>Habilidades: {{ superheroe.habilidades }}</p>
+  <img [src]="superheroe.imagenHeroeUrl" [alt]="superheroe.imagenHeroeAlt" />
+  <p>Misiones completada: {{ superheroe.misionesCompletadas }}</p>
+  <button [style.display]="superheroe.disponibilidad ? 'inline' : 'none'" (click)="superheroe.realizarMision()">Realizar Mision</button>
+</div>
